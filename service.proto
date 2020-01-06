@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package permissionproto;
+
+message RequestHeader {
+    string token = 1;
+    string access = 2;
+}
+
+message RequestField {
+    string code = 1;
+    string name = 2;
+    string description = 3;
+    string addressStreet = 4;
+    string addressCity = 5;
+    string addressPostCode = 6;
+    string addressState= 7;
+    string addressCountry = 8;
+}
+
+message GetAllRequest {
+    RequestHeader header = 1;
+    string query = 2;
+}
+
+message GetRequest {
+    RequestHeader header = 1;
+    int32 id = 2;
+}
+
+message CreateRequest {
+    RequestHeader header = 1;
+    RequestField field = 2;
+}
+
+message UpdateRequest {
+    RequestHeader header = 1;
+    int32 id = 2;
+    string action = 3;
+    RequestField field = 4;
+}
+
+message ColumnResponse {
+    int32 statusCode = 1;
+    string message = 2;
+    message Data {
+        int32 id = 1;
+        string name = 2;
+        string code = 3;
+        string addressCity = 4;
+        string addressCountry = 5;
+        string recordState = 6;
+    }
+    Data data = 3;
+}
+
+message DataResponse {
+    int32 statusCode = 1;
+    string message = 2;
+    message Data {
+        int32 id = 1;
+        string name = 2;
+        string code = 3;
+        string description = 4;
+        string addressStreet = 5;
+        string addressCity = 6;
+        string addressPostCode = 7;
+        string addressState = 8;
+        string addressCountry = 9;
+        string createdDate = 10;
+        string createdBy = 11;
+        string lastModifiedDate = 12;
+        string lastModifiedBy = 13;
+        string recordState = 14;
+    }
+    Data data = 3;
+}
+
+service Warehouse {
+    rpc GetAllData(GetAllRequest) returns (ColumnResponse);
+    rpc GetData(GetRequest) returns (DataResponse);
+    rpc UpdateData(UpdateRequest) returns (DataResponse);
+}
