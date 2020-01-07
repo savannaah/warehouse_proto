@@ -158,53 +158,6 @@ func (m *RequestField) GetAddressCountry() string {
 	return ""
 }
 
-type GetAllRequest struct {
-	Header               *RequestHeader `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
-	Query                string         `protobuf:"bytes,2,opt,name=query,proto3" json:"query,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *GetAllRequest) Reset()         { *m = GetAllRequest{} }
-func (m *GetAllRequest) String() string { return proto.CompactTextString(m) }
-func (*GetAllRequest) ProtoMessage()    {}
-func (*GetAllRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a0b84a42fa06f626, []int{2}
-}
-
-func (m *GetAllRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetAllRequest.Unmarshal(m, b)
-}
-func (m *GetAllRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetAllRequest.Marshal(b, m, deterministic)
-}
-func (m *GetAllRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetAllRequest.Merge(m, src)
-}
-func (m *GetAllRequest) XXX_Size() int {
-	return xxx_messageInfo_GetAllRequest.Size(m)
-}
-func (m *GetAllRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetAllRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetAllRequest proto.InternalMessageInfo
-
-func (m *GetAllRequest) GetHeader() *RequestHeader {
-	if m != nil {
-		return m.Header
-	}
-	return nil
-}
-
-func (m *GetAllRequest) GetQuery() string {
-	if m != nil {
-		return m.Query
-	}
-	return ""
-}
-
 type GetRequest struct {
 	Header               *RequestHeader `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
 	Id                   int32          `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
@@ -217,7 +170,7 @@ func (m *GetRequest) Reset()         { *m = GetRequest{} }
 func (m *GetRequest) String() string { return proto.CompactTextString(m) }
 func (*GetRequest) ProtoMessage()    {}
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a0b84a42fa06f626, []int{3}
+	return fileDescriptor_a0b84a42fa06f626, []int{2}
 }
 
 func (m *GetRequest) XXX_Unmarshal(b []byte) error {
@@ -264,7 +217,7 @@ func (m *CreateRequest) Reset()         { *m = CreateRequest{} }
 func (m *CreateRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateRequest) ProtoMessage()    {}
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a0b84a42fa06f626, []int{4}
+	return fileDescriptor_a0b84a42fa06f626, []int{3}
 }
 
 func (m *CreateRequest) XXX_Unmarshal(b []byte) error {
@@ -313,7 +266,7 @@ func (m *UpdateRequest) Reset()         { *m = UpdateRequest{} }
 func (m *UpdateRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateRequest) ProtoMessage()    {}
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a0b84a42fa06f626, []int{5}
+	return fileDescriptor_a0b84a42fa06f626, []int{4}
 }
 
 func (m *UpdateRequest) XXX_Unmarshal(b []byte) error {
@@ -362,140 +315,6 @@ func (m *UpdateRequest) GetField() *RequestField {
 	return nil
 }
 
-type ColumnResponse struct {
-	StatusCode           int32                  `protobuf:"varint,1,opt,name=statusCode,proto3" json:"statusCode,omitempty"`
-	Message              string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
-	Data                 []*ColumnResponse_Data `protobuf:"bytes,3,rep,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
-	XXX_unrecognized     []byte                 `json:"-"`
-	XXX_sizecache        int32                  `json:"-"`
-}
-
-func (m *ColumnResponse) Reset()         { *m = ColumnResponse{} }
-func (m *ColumnResponse) String() string { return proto.CompactTextString(m) }
-func (*ColumnResponse) ProtoMessage()    {}
-func (*ColumnResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a0b84a42fa06f626, []int{6}
-}
-
-func (m *ColumnResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ColumnResponse.Unmarshal(m, b)
-}
-func (m *ColumnResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ColumnResponse.Marshal(b, m, deterministic)
-}
-func (m *ColumnResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ColumnResponse.Merge(m, src)
-}
-func (m *ColumnResponse) XXX_Size() int {
-	return xxx_messageInfo_ColumnResponse.Size(m)
-}
-func (m *ColumnResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ColumnResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ColumnResponse proto.InternalMessageInfo
-
-func (m *ColumnResponse) GetStatusCode() int32 {
-	if m != nil {
-		return m.StatusCode
-	}
-	return 0
-}
-
-func (m *ColumnResponse) GetMessage() string {
-	if m != nil {
-		return m.Message
-	}
-	return ""
-}
-
-func (m *ColumnResponse) GetData() []*ColumnResponse_Data {
-	if m != nil {
-		return m.Data
-	}
-	return nil
-}
-
-type ColumnResponse_Data struct {
-	Id                   int32    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Code                 string   `protobuf:"bytes,3,opt,name=code,proto3" json:"code,omitempty"`
-	AddressCity          string   `protobuf:"bytes,4,opt,name=addressCity,proto3" json:"addressCity,omitempty"`
-	AddressCountry       string   `protobuf:"bytes,5,opt,name=addressCountry,proto3" json:"addressCountry,omitempty"`
-	RecordState          string   `protobuf:"bytes,6,opt,name=recordState,proto3" json:"recordState,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ColumnResponse_Data) Reset()         { *m = ColumnResponse_Data{} }
-func (m *ColumnResponse_Data) String() string { return proto.CompactTextString(m) }
-func (*ColumnResponse_Data) ProtoMessage()    {}
-func (*ColumnResponse_Data) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a0b84a42fa06f626, []int{6, 0}
-}
-
-func (m *ColumnResponse_Data) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ColumnResponse_Data.Unmarshal(m, b)
-}
-func (m *ColumnResponse_Data) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ColumnResponse_Data.Marshal(b, m, deterministic)
-}
-func (m *ColumnResponse_Data) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ColumnResponse_Data.Merge(m, src)
-}
-func (m *ColumnResponse_Data) XXX_Size() int {
-	return xxx_messageInfo_ColumnResponse_Data.Size(m)
-}
-func (m *ColumnResponse_Data) XXX_DiscardUnknown() {
-	xxx_messageInfo_ColumnResponse_Data.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ColumnResponse_Data proto.InternalMessageInfo
-
-func (m *ColumnResponse_Data) GetId() int32 {
-	if m != nil {
-		return m.Id
-	}
-	return 0
-}
-
-func (m *ColumnResponse_Data) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
-}
-
-func (m *ColumnResponse_Data) GetCode() string {
-	if m != nil {
-		return m.Code
-	}
-	return ""
-}
-
-func (m *ColumnResponse_Data) GetAddressCity() string {
-	if m != nil {
-		return m.AddressCity
-	}
-	return ""
-}
-
-func (m *ColumnResponse_Data) GetAddressCountry() string {
-	if m != nil {
-		return m.AddressCountry
-	}
-	return ""
-}
-
-func (m *ColumnResponse_Data) GetRecordState() string {
-	if m != nil {
-		return m.RecordState
-	}
-	return ""
-}
-
 type DataResponse struct {
 	StatusCode           int32              `protobuf:"varint,1,opt,name=statusCode,proto3" json:"statusCode,omitempty"`
 	Message              string             `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
@@ -509,7 +328,7 @@ func (m *DataResponse) Reset()         { *m = DataResponse{} }
 func (m *DataResponse) String() string { return proto.CompactTextString(m) }
 func (*DataResponse) ProtoMessage()    {}
 func (*DataResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a0b84a42fa06f626, []int{7}
+	return fileDescriptor_a0b84a42fa06f626, []int{5}
 }
 
 func (m *DataResponse) XXX_Unmarshal(b []byte) error {
@@ -575,7 +394,7 @@ func (m *DataResponse_Data) Reset()         { *m = DataResponse_Data{} }
 func (m *DataResponse_Data) String() string { return proto.CompactTextString(m) }
 func (*DataResponse_Data) ProtoMessage()    {}
 func (*DataResponse_Data) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a0b84a42fa06f626, []int{7, 0}
+	return fileDescriptor_a0b84a42fa06f626, []int{5, 0}
 }
 
 func (m *DataResponse_Data) XXX_Unmarshal(b []byte) error {
@@ -697,12 +516,9 @@ func (m *DataResponse_Data) GetRecordState() string {
 func init() {
 	proto.RegisterType((*RequestHeader)(nil), "permissionproto.RequestHeader")
 	proto.RegisterType((*RequestField)(nil), "permissionproto.RequestField")
-	proto.RegisterType((*GetAllRequest)(nil), "permissionproto.GetAllRequest")
 	proto.RegisterType((*GetRequest)(nil), "permissionproto.GetRequest")
 	proto.RegisterType((*CreateRequest)(nil), "permissionproto.CreateRequest")
 	proto.RegisterType((*UpdateRequest)(nil), "permissionproto.UpdateRequest")
-	proto.RegisterType((*ColumnResponse)(nil), "permissionproto.ColumnResponse")
-	proto.RegisterType((*ColumnResponse_Data)(nil), "permissionproto.ColumnResponse.Data")
 	proto.RegisterType((*DataResponse)(nil), "permissionproto.DataResponse")
 	proto.RegisterType((*DataResponse_Data)(nil), "permissionproto.DataResponse.Data")
 }
@@ -710,47 +526,42 @@ func init() {
 func init() { proto.RegisterFile("service.proto", fileDescriptor_a0b84a42fa06f626) }
 
 var fileDescriptor_a0b84a42fa06f626 = []byte{
-	// 627 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x54, 0xc1, 0x6e, 0xd3, 0x40,
-	0x10, 0x95, 0x13, 0x3b, 0x69, 0x26, 0x71, 0x8a, 0x56, 0x08, 0x59, 0x85, 0x96, 0xca, 0x2a, 0xa8,
-	0xe2, 0x90, 0x43, 0x2a, 0x55, 0x5c, 0xdb, 0x14, 0x8a, 0x84, 0x2a, 0x21, 0x03, 0xe2, 0xc4, 0x61,
-	0xf1, 0x4e, 0xa9, 0x85, 0xe3, 0x4d, 0x77, 0xd7, 0x48, 0x91, 0xf8, 0x0e, 0xbe, 0x80, 0x13, 0x37,
-	0xfe, 0x05, 0x89, 0xbf, 0xe0, 0x1b, 0x90, 0xd7, 0x76, 0xba, 0xb6, 0x13, 0x1a, 0x14, 0x6e, 0x9e,
-	0xe7, 0xf1, 0xf3, 0xec, 0xdb, 0x79, 0x0f, 0x5c, 0x89, 0xe2, 0x73, 0x14, 0xe2, 0x68, 0x26, 0xb8,
-	0xe2, 0x64, 0x7b, 0x86, 0x62, 0x1a, 0x49, 0x19, 0xf1, 0x44, 0x03, 0xfe, 0x23, 0x70, 0x03, 0xbc,
-	0x4e, 0x51, 0xaa, 0x17, 0x48, 0x19, 0x0a, 0x72, 0x17, 0x1c, 0xc5, 0x3f, 0x61, 0xe2, 0x59, 0xfb,
-	0xd6, 0x61, 0x2f, 0xc8, 0x0b, 0xff, 0x6b, 0x0b, 0x06, 0x45, 0xdf, 0xf3, 0x08, 0x63, 0x46, 0x08,
-	0xd8, 0x21, 0x67, 0x58, 0x74, 0xe9, 0xe7, 0x0c, 0x4b, 0xe8, 0x14, 0xbd, 0x56, 0x8e, 0x65, 0xcf,
-	0x64, 0x1f, 0xfa, 0x0c, 0x65, 0x28, 0xa2, 0x99, 0x8a, 0x78, 0xe2, 0xb5, 0xf5, 0x2b, 0x13, 0x22,
-	0x07, 0xe0, 0x52, 0xc6, 0x04, 0x4a, 0xf9, 0x5a, 0x09, 0x44, 0xe5, 0xd9, 0xba, 0xa7, 0x0a, 0x66,
-	0x3c, 0x05, 0x30, 0x89, 0xd4, 0xdc, 0x73, 0x72, 0x1e, 0x03, 0x22, 0x87, 0xb0, 0x5d, 0x94, 0xaf,
-	0xb8, 0x54, 0x93, 0x6c, 0xb8, 0x8e, 0xee, 0xaa, 0xc3, 0xc4, 0x87, 0xc1, 0x82, 0x9c, 0x2a, 0xf4,
-	0xba, 0xba, 0xad, 0x82, 0x91, 0xc7, 0x30, 0x2c, 0xc9, 0x79, 0x9a, 0x28, 0x31, 0xf7, 0xb6, 0x74,
-	0x57, 0x0d, 0xf5, 0xdf, 0x83, 0x7b, 0x8e, 0xea, 0x24, 0x8e, 0x0b, 0x75, 0xc8, 0x31, 0x74, 0xae,
-	0xb4, 0x92, 0x5a, 0x9a, 0xfe, 0x78, 0x6f, 0x54, 0x93, 0x7c, 0x54, 0xd1, 0x3b, 0x28, 0xba, 0x33,
-	0xdd, 0xaf, 0x53, 0x14, 0xf3, 0x42, 0xbd, 0xbc, 0xf0, 0xdf, 0x00, 0x9c, 0xa3, 0xda, 0x94, 0x7b,
-	0x08, 0xad, 0x88, 0x69, 0x62, 0x27, 0x68, 0x45, 0xcc, 0xff, 0x02, 0xee, 0x44, 0x20, 0x55, 0xb8,
-	0x29, 0xf1, 0x11, 0x38, 0x97, 0xd9, 0x3a, 0x68, 0xee, 0xfe, 0x78, 0x77, 0xd5, 0x67, 0x7a, 0x67,
-	0x82, 0xbc, 0xd7, 0xff, 0x66, 0x81, 0xfb, 0x76, 0xc6, 0xfe, 0xc3, 0xef, 0x6b, 0xe7, 0x22, 0xf7,
-	0xa0, 0x43, 0x43, 0x63, 0xcf, 0x8a, 0xea, 0x66, 0x4c, 0xfb, 0x1f, 0xc6, 0xfc, 0xd1, 0x82, 0xe1,
-	0x84, 0xc7, 0xe9, 0x34, 0x09, 0x50, 0xce, 0x78, 0x22, 0x91, 0xec, 0x01, 0x48, 0x45, 0x55, 0x2a,
-	0x27, 0xe5, 0xea, 0x3b, 0x81, 0x81, 0x10, 0x0f, 0xba, 0x53, 0x94, 0x92, 0x7e, 0x2c, 0x3d, 0x50,
-	0x96, 0xe4, 0x29, 0xd8, 0x8c, 0x2a, 0xea, 0xb5, 0xf7, 0xdb, 0x87, 0xfd, 0xf1, 0x41, 0x63, 0x80,
-	0xea, 0x8f, 0x46, 0x67, 0x54, 0xd1, 0x40, 0x7f, 0xb1, 0xf3, 0xdd, 0x02, 0x3b, 0x2b, 0x8b, 0xc3,
-	0x5a, 0x8b, 0xc3, 0x2e, 0x73, 0x5b, 0xe9, 0xca, 0xb6, 0xe1, 0xca, 0x9a, 0x73, 0xec, 0xa6, 0x73,
-	0x9a, 0xbb, 0xee, 0x2c, 0xdb, 0xf5, 0x8c, 0x49, 0x60, 0xc8, 0x05, 0xcb, 0x6d, 0x93, 0xbb, 0xcb,
-	0x84, 0xfc, 0x5f, 0x36, 0x0c, 0xf4, 0xec, 0x9b, 0x2b, 0x76, 0xbc, 0x50, 0x2c, 0xbb, 0x32, 0xbf,
-	0xa1, 0x98, 0xf9, 0x1b, 0x53, 0xaf, 0x9f, 0xed, 0xcd, 0xf5, 0x32, 0x13, 0xcb, 0x5e, 0x23, 0xb1,
-	0x9c, 0x35, 0x12, 0xab, 0xb3, 0x56, 0x62, 0x75, 0xd7, 0x4b, 0xac, 0xad, 0xb5, 0x12, 0xab, 0xb7,
-	0xea, 0x16, 0x43, 0x6d, 0x7e, 0x76, 0x96, 0x51, 0x41, 0x3e, 0x97, 0x01, 0x91, 0x07, 0xd0, 0x2b,
-	0xca, 0xd3, 0xb9, 0xd7, 0xd7, 0xef, 0x6f, 0x00, 0xf2, 0x04, 0xee, 0xc4, 0x54, 0xaa, 0x0b, 0xce,
-	0xa2, 0xcb, 0xa8, 0x20, 0x19, 0xe8, 0xa6, 0x06, 0x9e, 0xcd, 0x64, 0x62, 0xa7, 0x73, 0xcf, 0xcd,
-	0x67, 0xaa, 0xa2, 0xf5, 0xcd, 0x1a, 0x36, 0x36, 0x6b, 0xfc, 0xdb, 0x82, 0xde, 0x3b, 0x2a, 0xf0,
-	0x8a, 0xa7, 0x12, 0xc9, 0x85, 0x8e, 0xc5, 0x93, 0x38, 0xd6, 0x37, 0xdd, 0x8c, 0x8b, 0x4a, 0x24,
-	0xef, 0x3c, 0xbc, 0xc5, 0x6e, 0xe4, 0x19, 0x74, 0xcf, 0x51, 0x69, 0xae, 0xfb, 0xcb, 0xb8, 0x4a,
-	0xa2, 0xdd, 0xbf, 0x6e, 0x21, 0x79, 0x09, 0x90, 0xe7, 0xda, 0x8a, 0xa9, 0x2a, 0xa1, 0x77, 0x0b,
-	0xd9, 0x87, 0x8e, 0xc6, 0x8e, 0xfe, 0x04, 0x00, 0x00, 0xff, 0xff, 0x45, 0x1a, 0x7a, 0x0f, 0xc1,
-	0x07, 0x00, 0x00,
+	// 546 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0xc1, 0x6e, 0xd3, 0x40,
+	0x10, 0x86, 0x95, 0xc4, 0x76, 0x9a, 0x49, 0x9c, 0xa2, 0x11, 0x42, 0x56, 0xa1, 0x55, 0x65, 0x01,
+	0xaa, 0x38, 0xe4, 0x90, 0x4a, 0xbd, 0xd3, 0x54, 0x84, 0x0b, 0x12, 0x32, 0x20, 0xce, 0x8b, 0x77,
+	0x4a, 0x57, 0x34, 0xde, 0xb0, 0xbb, 0x41, 0x8a, 0xc4, 0x73, 0xf0, 0x04, 0x3c, 0x12, 0x12, 0x57,
+	0x1e, 0x05, 0x79, 0x77, 0xd3, 0xd8, 0x49, 0xa0, 0x46, 0xf4, 0xe6, 0xf9, 0xfc, 0x67, 0xf6, 0xdf,
+	0xf1, 0xfc, 0x81, 0x58, 0x93, 0xfa, 0x22, 0x72, 0x1a, 0xcd, 0x95, 0x34, 0x12, 0xf7, 0xe7, 0xa4,
+	0x66, 0x42, 0x6b, 0x21, 0x0b, 0x0b, 0xd2, 0x27, 0x10, 0x67, 0xf4, 0x79, 0x41, 0xda, 0xbc, 0x24,
+	0xc6, 0x49, 0xe1, 0x7d, 0x08, 0x8d, 0xfc, 0x44, 0x45, 0xd2, 0x3a, 0x6e, 0x9d, 0xf4, 0x32, 0x57,
+	0xa4, 0xdf, 0xda, 0x30, 0xf0, 0xba, 0x17, 0x82, 0xae, 0x39, 0x22, 0x04, 0xb9, 0xe4, 0xe4, 0x55,
+	0xf6, 0xb9, 0x64, 0x05, 0x9b, 0x51, 0xd2, 0x76, 0xac, 0x7c, 0xc6, 0x63, 0xe8, 0x73, 0xd2, 0xb9,
+	0x12, 0x73, 0x23, 0x64, 0x91, 0x74, 0xec, 0xab, 0x2a, 0xc2, 0xc7, 0x10, 0x33, 0xce, 0x15, 0x69,
+	0xfd, 0xc6, 0x28, 0x22, 0x93, 0x04, 0x56, 0x53, 0x87, 0x65, 0x1f, 0x0f, 0x26, 0xc2, 0x2c, 0x93,
+	0xd0, 0xf5, 0xa9, 0x20, 0x3c, 0x81, 0x7d, 0x5f, 0xbe, 0x96, 0xda, 0x4c, 0x4a, 0x73, 0x91, 0x55,
+	0x6d, 0x62, 0x4c, 0x61, 0x70, 0xd3, 0x9c, 0x19, 0x4a, 0xba, 0x56, 0x56, 0x63, 0xf8, 0x14, 0x86,
+	0xab, 0xe6, 0x72, 0x51, 0x18, 0xb5, 0x4c, 0xf6, 0xac, 0x6a, 0x83, 0xa6, 0x6f, 0x01, 0xa6, 0x64,
+	0xfc, 0x68, 0xf0, 0x0c, 0xa2, 0x2b, 0x3b, 0x46, 0x3b, 0x97, 0xfe, 0xf8, 0x68, 0xb4, 0x31, 0xef,
+	0x51, 0x6d, 0xd8, 0x99, 0x57, 0xe3, 0x10, 0xda, 0x82, 0xdb, 0xb9, 0x85, 0x59, 0x5b, 0xf0, 0xf4,
+	0x2b, 0xc4, 0x13, 0x45, 0xcc, 0xd0, 0xff, 0x36, 0x3e, 0x85, 0xf0, 0xb2, 0xfc, 0x5e, 0xb6, 0x77,
+	0x7f, 0x7c, 0xf8, 0xa7, 0x9f, 0xd9, 0x8f, 0x9a, 0x39, 0x6d, 0xfa, 0xbd, 0x05, 0xf1, 0xbb, 0x39,
+	0xbf, 0x83, 0xe3, 0x37, 0xee, 0x85, 0x0f, 0x20, 0x62, 0x79, 0x65, 0x11, 0x7c, 0xb5, 0xb6, 0x19,
+	0xfc, 0x83, 0xcd, 0x9f, 0x01, 0x0c, 0x2e, 0x98, 0x61, 0x19, 0xe9, 0xb9, 0x2c, 0x34, 0xe1, 0x11,
+	0x80, 0x36, 0xcc, 0x2c, 0xf4, 0x64, 0xb5, 0x99, 0x61, 0x56, 0x21, 0x98, 0x40, 0x77, 0x46, 0x5a,
+	0xb3, 0x8f, 0xab, 0x15, 0x5d, 0x95, 0x78, 0x06, 0x01, 0x67, 0x86, 0x59, 0x57, 0xfd, 0x71, 0xba,
+	0x75, 0x7c, 0xf5, 0x18, 0x57, 0x58, 0xfd, 0xc1, 0x8f, 0x0e, 0x04, 0x65, 0xe9, 0x2f, 0xda, 0xba,
+	0xb9, 0xe8, 0xae, 0x28, 0xac, 0x22, 0xd3, 0xa9, 0x44, 0x66, 0x23, 0x1e, 0x41, 0x83, 0x78, 0x84,
+	0x0d, 0xe2, 0x11, 0x35, 0x8a, 0x47, 0xb7, 0x59, 0x3c, 0xf6, 0x1a, 0xc5, 0xa3, 0xb7, 0x2b, 0x1e,
+	0xa5, 0xaf, 0xdc, 0x2e, 0x32, 0xbf, 0x28, 0x5b, 0x81, 0xf3, 0x55, 0x41, 0xf8, 0x08, 0x7a, 0xbe,
+	0x3c, 0x5f, 0x26, 0x7d, 0xfb, 0x7e, 0x0d, 0xf0, 0x19, 0xdc, 0xbb, 0x66, 0xda, 0xbc, 0x92, 0x5c,
+	0x5c, 0x0a, 0xdf, 0x64, 0x60, 0x45, 0x5b, 0xbc, 0xf4, 0x54, 0x65, 0xe7, 0xcb, 0x24, 0x76, 0x9e,
+	0xea, 0xb4, 0xf4, 0xa4, 0x28, 0x97, 0x8a, 0xbb, 0xeb, 0x0d, 0x9d, 0xa7, 0x0a, 0x1a, 0xff, 0x6a,
+	0x41, 0xef, 0x3d, 0x53, 0x74, 0x25, 0x17, 0x9a, 0x70, 0x0a, 0x91, 0x0b, 0x23, 0x6e, 0xaf, 0x7d,
+	0x2d, 0xa5, 0x07, 0x87, 0x7f, 0x5d, 0x1c, 0x7c, 0x0e, 0x9d, 0x29, 0x19, 0x7c, 0xb8, 0xa5, 0x5a,
+	0xff, 0x83, 0xdc, 0xd6, 0x62, 0x0a, 0x91, 0x4b, 0xe6, 0x0e, 0x2f, 0xb5, 0xc8, 0xde, 0xd2, 0xe8,
+	0x43, 0x64, 0xd9, 0xe9, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0x72, 0x80, 0x31, 0x19, 0x20, 0x06,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -765,9 +576,9 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type WarehouseClient interface {
-	GetAllData(ctx context.Context, in *GetAllRequest, opts ...grpc.CallOption) (*ColumnResponse, error)
-	GetData(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*DataResponse, error)
-	UpdateData(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*DataResponse, error)
+	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*DataResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*DataResponse, error)
+	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*DataResponse, error)
 }
 
 type warehouseClient struct {
@@ -778,27 +589,27 @@ func NewWarehouseClient(cc *grpc.ClientConn) WarehouseClient {
 	return &warehouseClient{cc}
 }
 
-func (c *warehouseClient) GetAllData(ctx context.Context, in *GetAllRequest, opts ...grpc.CallOption) (*ColumnResponse, error) {
-	out := new(ColumnResponse)
-	err := c.cc.Invoke(ctx, "/permissionproto.Warehouse/GetAllData", in, out, opts...)
+func (c *warehouseClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*DataResponse, error) {
+	out := new(DataResponse)
+	err := c.cc.Invoke(ctx, "/permissionproto.Warehouse/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *warehouseClient) GetData(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*DataResponse, error) {
+func (c *warehouseClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*DataResponse, error) {
 	out := new(DataResponse)
-	err := c.cc.Invoke(ctx, "/permissionproto.Warehouse/GetData", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/permissionproto.Warehouse/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *warehouseClient) UpdateData(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*DataResponse, error) {
+func (c *warehouseClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*DataResponse, error) {
 	out := new(DataResponse)
-	err := c.cc.Invoke(ctx, "/permissionproto.Warehouse/UpdateData", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/permissionproto.Warehouse/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -807,79 +618,79 @@ func (c *warehouseClient) UpdateData(ctx context.Context, in *UpdateRequest, opt
 
 // WarehouseServer is the server API for Warehouse service.
 type WarehouseServer interface {
-	GetAllData(context.Context, *GetAllRequest) (*ColumnResponse, error)
-	GetData(context.Context, *GetRequest) (*DataResponse, error)
-	UpdateData(context.Context, *UpdateRequest) (*DataResponse, error)
+	Create(context.Context, *CreateRequest) (*DataResponse, error)
+	Get(context.Context, *GetRequest) (*DataResponse, error)
+	Update(context.Context, *UpdateRequest) (*DataResponse, error)
 }
 
 // UnimplementedWarehouseServer can be embedded to have forward compatible implementations.
 type UnimplementedWarehouseServer struct {
 }
 
-func (*UnimplementedWarehouseServer) GetAllData(ctx context.Context, req *GetAllRequest) (*ColumnResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllData not implemented")
+func (*UnimplementedWarehouseServer) Create(ctx context.Context, req *CreateRequest) (*DataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedWarehouseServer) GetData(ctx context.Context, req *GetRequest) (*DataResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetData not implemented")
+func (*UnimplementedWarehouseServer) Get(ctx context.Context, req *GetRequest) (*DataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (*UnimplementedWarehouseServer) UpdateData(ctx context.Context, req *UpdateRequest) (*DataResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateData not implemented")
+func (*UnimplementedWarehouseServer) Update(ctx context.Context, req *UpdateRequest) (*DataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
 
 func RegisterWarehouseServer(s *grpc.Server, srv WarehouseServer) {
 	s.RegisterService(&_Warehouse_serviceDesc, srv)
 }
 
-func _Warehouse_GetAllData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllRequest)
+func _Warehouse_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WarehouseServer).GetAllData(ctx, in)
+		return srv.(WarehouseServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/permissionproto.Warehouse/GetAllData",
+		FullMethod: "/permissionproto.Warehouse/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WarehouseServer).GetAllData(ctx, req.(*GetAllRequest))
+		return srv.(WarehouseServer).Create(ctx, req.(*CreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Warehouse_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Warehouse_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WarehouseServer).GetData(ctx, in)
+		return srv.(WarehouseServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/permissionproto.Warehouse/GetData",
+		FullMethod: "/permissionproto.Warehouse/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WarehouseServer).GetData(ctx, req.(*GetRequest))
+		return srv.(WarehouseServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Warehouse_UpdateData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Warehouse_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WarehouseServer).UpdateData(ctx, in)
+		return srv.(WarehouseServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/permissionproto.Warehouse/UpdateData",
+		FullMethod: "/permissionproto.Warehouse/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WarehouseServer).UpdateData(ctx, req.(*UpdateRequest))
+		return srv.(WarehouseServer).Update(ctx, req.(*UpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -889,16 +700,16 @@ var _Warehouse_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*WarehouseServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetAllData",
-			Handler:    _Warehouse_GetAllData_Handler,
+			MethodName: "Create",
+			Handler:    _Warehouse_Create_Handler,
 		},
 		{
-			MethodName: "GetData",
-			Handler:    _Warehouse_GetData_Handler,
+			MethodName: "Get",
+			Handler:    _Warehouse_Get_Handler,
 		},
 		{
-			MethodName: "UpdateData",
-			Handler:    _Warehouse_UpdateData_Handler,
+			MethodName: "Update",
+			Handler:    _Warehouse_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

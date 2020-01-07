@@ -17,11 +17,6 @@ message RequestField {
     string addressCountry = 8;
 }
 
-message GetAllRequest {
-    RequestHeader header = 1;
-    string query = 2;
-}
-
 message GetRequest {
     RequestHeader header = 1;
     int32 id = 2;
@@ -37,20 +32,6 @@ message UpdateRequest {
     int32 id = 2;
     string action = 3;
     RequestField field = 4;
-}
-
-message ColumnResponse {
-    int32 statusCode = 1;
-    string message = 2;
-    message Data {
-        int32 id = 1;
-        string name = 2;
-        string code = 3;
-        string addressCity = 4;
-        string addressCountry = 5;
-        string recordState = 6;
-    }
-    repeated Data data = 3;
 }
 
 message DataResponse {
@@ -76,7 +57,7 @@ message DataResponse {
 }
 
 service Warehouse {
-    rpc GetAllData(GetAllRequest) returns (ColumnResponse);
-    rpc GetData(GetRequest) returns (DataResponse);
-    rpc UpdateData(UpdateRequest) returns (DataResponse);
+    rpc Create(CreateRequest) returns (DataResponse);
+    rpc Get(GetRequest) returns (DataResponse);
+    rpc Update(UpdateRequest) returns (DataResponse);
 }
