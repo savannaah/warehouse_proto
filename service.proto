@@ -4,7 +4,6 @@ package permissionproto;
 
 message RequestHeader {
     string token = 1;
-    string access = 2;
 }
 
 message RequestField {
@@ -51,7 +50,7 @@ message ColumnResponse {
         string addressCountry = 5;
         string recordState = 6;
     }
-    Data data = 3;
+    repeated Data data = 3;
 }
 
 message DataResponse {
