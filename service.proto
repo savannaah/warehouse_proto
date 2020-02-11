@@ -30,8 +30,13 @@ message CreateRequest {
 message UpdateRequest {
     RequestHeader header = 1;
     int32 id = 2;
+    RequestField field = 3;
+}
+
+message ActionRequest {
+    RequestHeader header = 1;
+    int32 id = 2;
     string action = 3;
-    RequestField field = 4;
 }
 
 message DataResponse {
@@ -60,4 +65,5 @@ service Warehouse {
     rpc Create(CreateRequest) returns (DataResponse);
     rpc Get(GetRequest) returns (DataResponse);
     rpc Update(UpdateRequest) returns (DataResponse);
+    rpc Action(ActionRequest) returns (DataResponse);
 }
