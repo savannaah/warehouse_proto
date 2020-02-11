@@ -36,7 +36,7 @@ message UpdateRequest {
 message ActionRequest {
     RequestHeader header = 1;
     int32 id = 2;
-    string action = 3;
+    string name = 3;
 }
 
 message DataResponse {
